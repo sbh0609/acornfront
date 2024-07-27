@@ -246,9 +246,146 @@
             width: 650px;
             height: 750px;
         }
-        footer{
-            height: 650px;
-            background-color: #FFFFFF;
+
+        .footer a{
+            text-decoration: none;
+        }
+        .footer {
+            width: 768px;
+            margin: 0 auto;
+        }
+
+        .footerA {
+            padding: 48px 0px;
+            display: flex;
+        }
+
+        .footerNav {
+            display: flex;
+            width: 464px;
+        }
+
+        .footerNavbar {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footerNavbar li {
+            padding: 16.6px;
+            padding-right: 25.6px;
+        }
+
+        .footerNavbar li a {
+            font-size: 14px;
+            color: #212124;
+        }
+
+        .DownloadDiv1 {
+            font-size: 14px;
+            color: #212124;
+            font-weight: 700;
+        }
+
+        .DownloadDiv2 {
+            margin-top: 10px;
+        }
+
+        .DownloadDiv2 a {
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+            border-radius: 10px;
+            width: 147px;
+            height: 44px;
+        }
+
+        .AppStore {
+            background-image: url("images/AppStore.png");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .GooglePlay {
+            background-image: url("images/GooglePlay.png");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .footerB {
+            border-top: 1px solid rgba(0, 0, 0, 0.2);
+            width: 768px;
+            padding: 24px 0px 100px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .infoWrap {
+            width: 430px;
+        }
+
+        .info div span {
+            font-size: 13px;
+            color: #868B94;
+        }
+
+        .info div span b {
+            font-size: 13px;
+            margin-right: 3px;
+        }
+
+        .infoStick::after {
+            content: "|";
+            margin: 0;
+            opacity: 0.4;
+        }
+
+        .infoNav {
+            margin: 16px 0px;
+        }
+
+        .infoNav a {
+            text-decoration: none;
+            color: #868B94;
+            font-size: 13px;
+            margin-right: 16px;
+            font-weight: 700;
+        }
+
+        .snsWrap {
+            margin-left: 50px;
+            width: 280px;
+            display: flex;
+        }
+
+        .snsWrap a {
+            padding-top: 4px;
+            margin-right: 16px;
+        }
+
+        .snsWrap a img {
+            width: 21px;
+            height: 21px;
+        }
+        .lang {
+            padding: 8px;
+            width: 92px;
+            height: 14px;
+            font-size: 14px;
+            color: #868B94;
+            display: flex;
+            align-items: center;
+        }
+        .lang span {
+            padding-left: 4px;
+            padding-right: 16px;
+        }
+
+        .rules a {
+            color: #868B94;
+            font-size: 13px;
+            font-weight: 700;
+            margin-right: 16px;
         }
     </style>
 </head>
@@ -293,7 +430,7 @@
                     </p>
                     <div class="home-buttons">
                         <a href="" class="home-button">인기매물 보기</a>
-                        <a href="" class="home-button">믿을 수 있는 중고거래</a>
+                        <a href="trust.html" class="home-button">믿을 수 있는 중고거래</a>
                     </div>
                 </div>
             </div>
@@ -380,28 +517,99 @@
             </div>
         </section>
     </main>
-    <footer></footer>
+    <footer>
+        <div class="footer">
+            <section class="footerA">
+                <nav class="footerNav">
+                    <ul class="footerNavbar">
+                        <li><a href="">중고거래</a></li>
+                        <li><a href="">동네업체</a></li>
+                        <li><a href="">당근알바</a></li>
+                        <li><a href="">부동산</a></li>
+                        <li><a href="">중고차 직거래</a></li>
+                    </ul>
+                    <ul class="footerNavbar">
+                        <li><a href="">당근비즈니스</a></li>
+                        <li><a href="">채팅하기</a></li>
+                    </ul>
+                    <ul class="footerNavbar">
+                        <li><a href="">자주 묻는 질문</a></li>
+                        <li><a href="">회사 소개</a></li>
+                        <li><a href="">인재 채용</a></li>
+                    </ul>
+                </nav>
+                <div>
+                    <div class="DownloadDiv1">당근 앱 다운로드</div>
+                    <div class="DownloadDiv2">
+                        <a href="" class="AppStore"></a>
+                        <a href="" class="GooglePlay"></a>
+                    </div>
+                </div>
+            </section>
+            <section class="footerB">
+                <div class="infoWrap">
+                    <div class="info">
+                        <div>
+                            <span class="infoStick">
+                                <b>대표</b>김용현,황도연
+                            </span>
 
-    <script>
-        function showXmark(){
-            let searchWord = document.querySelector("#search_word");
-            let xmark = document.querySelector(".xmark");
-            if (searchWord.value != ""){
-                xmark.style.display = "block";
-            } else{
-                xmark.style.display = "none";
-            }
-        }
-
-        function deleteSearchWord(){
-            let searchWord = document.querySelector("#search_word");
-            let xmark = document.querySelector(".xmark");
-            searchWord.value = "";
-            xmark.style.display = "none";
-            if (searchWord.value == ""){
-                searchWord.focus();
-            }
-        }
-    </script>
+                            <span>
+                                <b>사업자번호</b>375-87-00088
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <b>직업정보제공사업 신고번호</b>J1200020200016
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <b>통신판매업 신고번호</b>2021-서울서초-2875
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <b>주소</b>서울특별시 구로구 디지털로 300, 10층 (당근서비스)
+                            </span>
+                        </div>
+                        <div>
+                            <span class="infoStick">
+                                <b>전화</b>1544-9796
+                            </span>
+                            <span>
+                                <b>고객문의</b>cs@daangnservice.com
+                            </span>
+                        </div>
+                    </div>
+                    <div class="infoNav">
+                        <a href="">제휴 문의</a>
+                        <a href="">광고 문의</a>
+                        <a href="">PR 문의</a>
+                        <a href="">IR 문의</a>
+                    </div>
+                </div>
+                <div class="snsWrap">
+                    <a href=""><img src="images/Facebook.png" alt=""></a>
+                    <a href=""><img src="images/Instagram.png" alt=""></a>
+                    <a href=""><img src="images/Youtube.png" alt=""></a>
+                    <a href=""><img src="images/Blog.png" alt=""></a>
+                    <div class="lang">
+                        <img src="images/Global.png" width="16px" height="16px">
+                        <span>한국</span>
+                        <img src="images/DownArrow.png" alt="" width="12px" height="6px">
+                    </div>
+                </div>
+                <div class="rules">
+                    <a href="">이용약관</a>
+                    <a href="">개인정보처리방침</a>
+                    <a href="">운영정책</a>
+                    <a href="">위치기반서비스 이용약관</a>
+                    <a href="">이용자보호 비전과 계획</a>
+                    <a href="">청소년보호정책</a>
+                </div>
+            </section>
+        </div>
+    </footer>
 </body>
 </html>
