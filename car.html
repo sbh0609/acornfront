@@ -407,6 +407,138 @@
             font-weight: 700;
             margin-right: 16px;
         }
+
+        /* 모달 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px 40px;
+            border: 1px solid #888;
+            width: 400px;
+            max-width: 500px;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .modal-close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .modal-close:hover,
+        .modal-close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal input[type="text"],
+        .modal input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .modal button {
+            background-color: #F76707;
+            width: 100%;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .modal button:hover {
+            background-color: #e05c04;
+        }
+
+        .modal-other {
+            margin-top: 36px;
+            text-align: center;
+        }
+
+        .modal-border {
+            border: .5px solid rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+
+        .modal-font {
+            font-size: 14px;
+            color: #70798F;
+            display: inline-block;
+            z-index: 5;
+            padding: 0 12px;
+            position: relative;
+            top: -12px;
+            background-color: white;
+        }
+
+        .modal-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 8px;
+        }
+
+        .modal-nav a {
+            margin: 0px 10px;
+        }
+
+        .modal-check {
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-check input {
+            margin: 0;
+            padding: 0;
+            margin-right: 6px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .modal-check label {
+            font-size: 14px;
+            color: #16181D;
+        }
+
+        .modal-resist {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .modal-resist .resist01 {
+            color: #70798F;
+            font-size: 14px;
+            color: #70798F;
+            margin-right: 6px;
+        }
+
+        .modal-resist .resist02 a {
+            text-decoration: none;
+            color: #21AFBF;
+            font-size: 14px;
+            font-weight: 700;
+        }
     </style>
 </head>
 
@@ -440,7 +572,7 @@
             <h1>딜러 수수료 없는<br>중고차 직거래</h1>
             <p>딜러 없이 믿고 살 수 있는 중고차,<br>당근에서 직거래해보세요.</p>
             <div>
-                <button>내 차 판매하기</button>
+                <button class="postBtn">내 차 판매하기</button>
             </div>
         </div>
         <div class="headLogo"></div>
@@ -783,12 +915,73 @@
             </section>
         </div>
     </footer>
-
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>로그인</h2>
+            <form>
+                <input type="text" placeholder="아이디">
+                <input type="password" placeholder="비밀번호">
+                <button type="submit">로그인</button>
+            </form>
+            <div class="modal-other">
+                <div class="modal-border"></div>
+                <span class="modal-font">다른 방법으로 로그인</span>
+            </div>
+            <div class="modal-nav">
+                <a target="_blank"
+                    href="https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?response_type=code&client_id=879856290852-j8vht98rp1jd3thrgnib2dp1fg2flui2.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fapi.miricanvas.com%2Fauth%2Fgoogle%2Foauth20%2Fmiricanvas%2Fcallback&state=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdXRvX2xvZ2luIjpmYWxzZSwic2lnbl91cCI6ZmFsc2UsImV4cCI6MTcyMjI0MDAxN30.m55kTj7Pck61qkk2LIwVnXe0SVbHasqXeiekHjOLvTw&scope=profile%20email&service=lso&o2v=1&ddm=0&flowName=GeneralOAuthFlow"><img
+                        src="https://www.miricanvas.com/_next/image?url=https%3A%2F%2Fresource.miricanvas.com%2Fimage%2Flogo%2Fasset-google-symbol-96-96-new.png&w=48&q=75"
+                        width="36px" height="36px"></a>
+                <a target="_blank"
+                    href="https://www.facebook.com/login.php?skip_api_login=1&api_key=1013430245531976&kid_directed_site=0&app_id=1013430245531976&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fv18.0%2Fdialog%2Foauth%3Fresponse_type%3Dcode%26client_id%3D1013430245531976%26redirect_uri%3Dhttps%253A%252F%252Fapi.miricanvas.com%252Fauth%252Ffacebook%252Foauth20%252Fmiricanvas%252Fcallback%26state%3DeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdXRvX2xvZ2luIjpmYWxzZSwic2lnbl91cCI6ZmFsc2UsImV4cCI6MTcyMjI0MDAzOX0.p0FnJeVc2_n6fr2f2BPK0Fzf_1VUNXIC4EnDIi7wGHo%26scope%3Demail%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3De99df31e-b78f-445c-a697-7d5109eaa59e%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fapi.miricanvas.com%2Fauth%2Ffacebook%2Foauth20%2Fmiricanvas%2Fcallback%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3DeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdXRvX2xvZ2luIjpmYWxzZSwic2lnbl91cCI6ZmFsc2UsImV4cCI6MTcyMjI0MDAzOX0.p0FnJeVc2_n6fr2f2BPK0Fzf_1VUNXIC4EnDIi7wGHo%23_%3D_&display=page&locale=ko_KR&pl_dbl=0"><img
+                        src="https://www.miricanvas.com/_next/image?url=https%3A%2F%2Fresource.miricanvas.com%2Fimage%2Flogo%2Fasset-facebook-symbol-96-96.png&w=48&q=75"
+                        width="36px" height="36px"></a>
+                <a target="_blank"
+                    href="https://account.whalespace.io/s/login?redirect=https%3A%2F%2Fapi.miricanvas.com%2Fauth%2Fwhale%2Foauth20%2Fmiricanvas%2Fcallback&client_id=NDT498fc9ClbZguxzdgC&ot=WQsWeVBpVv2_MUjs&state=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdXRvX2xvZ2luIjpmYWxzZSwic2lnbl91cCI6ZmFsc2UsImV4cCI6MTcyMjI0MDA0OH0.Me5GQXANMCvGhE_GJGRG2yfaOCDI7GIC-9mdgj4aG8g"><img
+                        src="https://www.miricanvas.com/_next/image?url=https%3A%2F%2Fresource.miricanvas.com%2Fimage%2Flogo%2Fasset-whale-symbol-96-96.png&w=48&q=75"
+                        width="36px" height="36px"></a>
+                <a target="_blank"
+                    href="https://appleid.apple.com/auth/authorize?response_type=code&client_id=com.miridih.miricanvas-web&redirect_uri=https://api.miricanvas.com/auth/apple/oauth20/miricanvas/callback&state=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdXRvX2xvZ2luIjpmYWxzZSwic2lnbl91cCI6ZmFsc2UsImV4cCI6MTcyMjI0MDA1NX0.wZ1xS7QIFSw7AMZjfX2p3Kz_TV_kcj32oNCvxOczlco&scope=name%20email&response_mode=form_post"><img
+                        src="https://www.miricanvas.com/_next/image?url=https%3A%2F%2Fresource.miricanvas.com%2Fimage%2Flogo%2Fasset-apple-symbol-128-128.png&w=48&q=75"
+                        width="36px" height="36px"></a>
+            </div>
+            <div class="modal-check">
+                <input type="checkbox" name="modal-label">
+                <label for="modal-label">로그인 상태 유지</label>
+            </div>
+            <div class="modal-resist">
+                <span class="resist01">아직 회원이 아니신가요?</span>
+                <span class="resist02"><a href="joinus.html">회원가입</a></span>
+            </div>
+        </div>
+    </div>
     <script>
         document.querySelector('.carsWrap').addEventListener('click', function(event) {
             event.stopPropagation(); // 이벤트 버블링 방지
             window.open("car-post.html", "_blank");
         });
+        // 모달창을 열고 닫는 스크립트
+        let modal = document.getElementById("loginModal");
+        let btn = document.querySelector(".postBtn");
+        let span = document.getElementsByClassName("modal-close")[0];
+
+        // 로그인 버튼 클릭 시 모달 열기
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // 모달의 닫기 버튼 클릭 시 모달 닫기
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // 모달 외부 클릭 시 모달 닫기
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
     </script>
 </body>
 
