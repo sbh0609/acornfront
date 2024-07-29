@@ -6,50 +6,45 @@
     <title>동네 이웃들이 자주 가는 동네 업체</title>
     <link rel="icon" type="image/x-icon" href="https://www.danggn.com/_contentweaver/ico_PC_32x32.png">
     <style>
-                /* 웹폰트 CDN */
+        /* 웹폰트 CDN */
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
-        *{
+        * {
             font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-            /* font-weight: 400; */
             font-style: normal;
-            padding:0;
+            padding: 0;
             margin: 0;
         }
-        .fixed_menu{
+        .fixed_menu {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            margin: 0; /* 여백 제거 */
-            padding: 0; /* 패딩 제거 */
-            box-sizing: border-box; /* 패딩과 테두리를 포함하여 너비 계산 */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             display: flex;
             justify-content: center;
             height: 64px;
-        }   
-        .fixed_menu2{
+        }
+        .fixed_menu2 {
             width: 1200px;
             display: flex;
-            
             align-items: center;
             position: relative;
-            padding :12px 20px;
-            margin: 0px 340px;
-
+            padding: 12px 20px;
         }
-        .fixed_menu ul{
+        .fixed_menu ul {
             list-style: none;
             display: flex;
             margin-right: 400px;
             justify-content: center;
             padding-left: 30px;
         }
-        .fixed_menu ul li{
+        .fixed_menu ul li {
             margin: 0px 30px 0px 0px;
             font-size: 17px;
         }
-        
-        .search_bar{
+        .search_bar {
             background-color: #F2F3F6;
             border-radius: 5px;
             border: none;
@@ -58,7 +53,7 @@
             padding: 9px 12px;
             font-size: 17px;
         }
-        .header_button{
+        .header_button {
             border-radius: 5px;
             width: 98px;
             height: 40px;
@@ -68,40 +63,36 @@
             font-size: 17px;
         }
         header {
-            margin-top: 64px; /* fixed_menu의 높이만큼 여백 추가 */
+            margin-top: 64px;
             width: 1880px;
             height: 315px;
             padding: 0px 20px;
             background-color: #f7f1eb;
         }
-        .intro_header{
-            
+        .intro_header {
             width: 768px;
             height: 315px;
             margin: 0px 540px;
             position: relative;
         }
-        .jdm{
+        .jdm {
             position: absolute;
             bottom: 0px;
             width: 453px;
             height: 260px;
             right: 0px;
         }
-        .info_text{
-            position:absolute;
+        .info_text {
+            position: absolute;
             top: 50px;
         }
-        .intro_header h1{
+        .intro_header h1 {
             margin-bottom: 16px;
-            /* position:absolute;
-            top:50px */
         }
-        .intro_header span{
+        .intro_header span {
             font-size: 18px;
-            height: auto;
         }
-        section{
+        .section1 {
             width: 768px;
             margin: 0px 540px;
             padding: 0px 20px;
@@ -109,40 +100,39 @@
             flex-direction: column;
             margin-top: 50px;
         }
-        section h2{
+        .section1 h2 {
             font-size: 32px;
             margin: 14px 0px 32px;
             padding: 0px 16px;
             text-align: center;
         }
-        .button_area{
+        .button_area {
             display: flex;
             justify-content: center;
             height: 36px;
             margin-top: 8px;
         }
-        .button_list{
+        .button_list {
             margin: 0 auto;
             display: flex;
             list-style: none;
             padding: 0px 10px;
             align-content: center;
         }
-        .button_list li button{
+        .button_list li button {
             margin: 0px 3.5px;
-            border:1px solid black;
+            border: 1px solid black;
             padding: 0px 14px;
             height: 36px;
             text-align: center;
             border-radius: 30px;
             background-color: white;
             border: 1px solid lightgray;
-            font-size:15px;
+            font-size: 15px;
             cursor: pointer;
         }
-        
-        .button_list li button:hover{
-            background-color: gray  ;
+        .button_list li button:hover {
+            background-color: gray;
         }
         .button_list li button.active {
             background-color: black;
@@ -151,125 +141,262 @@
         .button_detail_wrap {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between; /* 양 끝에 붙게 하고 사이에 공간을 둠 */
+            justify-content: space-between;
             width: 100%;
             box-sizing: border-box;
         }
-
         .detail_list {
-            flex: 1 1 calc(50% - 10px); /* 여백을 고려한 너비 설정 */
+            flex: 1 1 calc(50% - 10px);
             margin-top: 30px;
             padding: 16px;
             box-sizing: border-box;
-            max-width: 380px; /* 최대 너비 설정 */
-            height: auto;
+            max-width: 380px;
         }
-
-        /* 첫 번째 열에만 오른쪽 마진을 설정 */
         .detail_list:nth-child(odd) {
             margin-right: 10px;
         }
-
-        /* 두 번째 열에는 오른쪽 마진 제거 */
         .detail_list:nth-child(even) {
             margin-right: 0;
         }
-        .detail_link{
+        .detail_link {
             display: flex;
             text-decoration: none;
             justify-content: space-between;
         }
-        .image_area{
+        .image_area {
             width: 80px;
             height: 80px;
             border-radius: 50%;
         }
-        .detail_item{
+        .detail_item {
             display: flex;
             flex-direction: column;
+            margin-left: 10px;
         }
-        .detail_name{
+        .detail_name {
             width: 100%;
         }
-        .detail_name_info{
+        .detail_name_info {
             display: flex;
-        
         }
-        .span1{
+        .span1 {
             width: 240px;
             height: 43.5px;
-            overflow: hidden; 
-            text-overflow: ellipsis; /* 넘치는 내용을 ...으로 표시합니다 */
+            overflow: hidden;
+            display: -webkit-box;
+            line-clamp: 2;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
         }
+        aaspan
         .span2 {
             max-width: 240px;
-            word-wrap: break-word; /* 단어 단위로 줄 바꿈 */
-            word-break: break-all; /* 단어를 강제로 잘라서 줄 바꿈 */
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+        .section2{
+            width: 768px;
+            margin: 0px 540px;
+            margin: 0 auto;  /* 중앙 정렬을 위해 auto로 수정 */
+            padding: 0px 20px;
+            display: flex;
+            flex-direction: column;
+            margin-top: 50px;
+        }
+        .section2 h2{
+            font-size: 32px;
+            margin: 14px 0px 32px;
+            padding: 0px 16px;
+            text-align: left;
+        }
+
+        .after_list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .after_link {
+            flex: 1 1 calc(50% - 10px);
+            text-decoration: none;
+            border : 0.5px solid lightgray;
+            border-radius: 7px;
+            margin-top: 2px;
+            padding: 16px;
+            box-sizing: border-box;
+            height: auto;
+            max-width: 380px;
+        }
+
+        .image_area2{
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+        }
+        .after_first{
+            display: flex;
+        }
+        .ad1{
+            display: flex;
+        }
+        .ad2    {
+            display: flex;
+        }
+        .after_item{
+            display: flex;
+            border: 0.5px solid lightgray;
+            border-radius: 7px;
+        }
+        
+        .image_area3{
+            width: 62px;
+            height: 62px;
+            border-radius: 7px 0px 0px 7px;
+        }
+        .ci1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* 추가 */
+            margin-left: 10px; /* 이미지와 텍스트 사이의 간격 조정 */
+        }
+        .aaspan {
+            margin-top: 7px;
+            margin-bottom:15px;
+            width: 342px;
+            height: 43.5px;
+            overflow: hidden;
+            display: -webkit-box;
+            line-clamp: 2;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        .last_div{
+            display: flex;
+            text-align: center;
+            margin-top: 80px;
+            padding: 24px 22px 24px 32px;
+            background-color: #f7be6824;
+            border-radius: 4px;
+            position: relative;
+        }
+        .last_img{
+            height: 72px;
+            width: 72px;
+        }
+        .dddd{
+            margin-left: 32px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .dddd h3{
+            text-align: left;
+        }
+        .bizzpro{
+            width: 180px;
+            height: 40px;
+            position: absolute;
+            right: 22px;
+            top: 43px;
+            font-size: 18px;
+            border: none;
+            background-color: orange;
+            border-radius: 6px;
+            color: white;
+            font-weight: bold;
+        }
+        hr{
+            margin-top: 80px;
+            
         }
     </style>
     <script>
-        window.onload = function() {
-            const details = [
-                {
-                    image: "/images/전체1.jpeg",
-                    main_name: "드롱플라워 - 송파",
-                    sub_name: "가락1동",
-                    span1: "송파구 단골순위 1위 꽃집 !!!",
-                    span2: "후기 203 · 단골 1,872 · 꽃집/꽃배달"
-                },
-                {
-                    image: "/images/전체2.jpeg",
-                    main_name: "흰민용달 흰민이사 용...",
-                    sub_name: "화곡동",
-                    span1: "이사 용달 용달이사 원룸이사 소형이사 학생이사 당근마켓 후기",
-                    span2: "후기 2,354 · 단골 5,017 · 용달이사/용달화물"
-                },
-                {
-                    image: "/images/전체3.jpeg",
-                    main_name: "윤씨네 즉석두부",
-                    sub_name: "신림동",
-                    span1: "관악신시장헬서 제일 젊은 사장인 운영중인 곳! 젊은 사장이 하...",
-                    span2: "후기 459 · 단골 2,141 · 즉석판매제조가공업"
-                },
-                {
-                    image: "/images/전체4.jpeg",
-                    main_name: "영클린 홈케어",
-                    sub_name: "서현동",
-                    span1: "에어컨청소·깨끗하게 해드려요 친환경 세제사용, 고객세척하여 금...",
-                    span2: "후기 1,047 · 단골 2,346 · 에어컨청소"
-                },
-                {
-                    image: "/images/전체5.jpeg",
-                    main_name: "가죽공방늘품",
-                    sub_name: "봉천동",
-                    span1: "한땀한땀 나만의 핸드메이드 제품을 만들고 있는 가죽공방 늘품입...",
-                    span2: "후기 143 · 단골 550 · 공방"
-                },
-                {
-                    image: "/images/전체6.jpeg",
-                    main_name: "씨유네일",
-                    sub_name: "독산동",
-                    span1: "_see_u_nail 인스타 👉🏽 🧡 네일아트 3인동시 시술가능",
-                    span2: "후기 474 · 단골 1,018 · 네일샵"
-                },
-                {
-                    image: "/images/전체7.jpeg",
-                    main_name: "도롱플라워",
-                    sub_name: "거제동",
-                    span1: "도롱행복 꽃 배송 연제구 들러구 부산진구 금정구 수영구 남구 무...",
-                    span2: "후기 626 · 단골 2,038 · 꽃집/꽃배달"
-                },
-                {
-                    image: "/images/전체8.jpeg",
-                    main_name: "오떡순",
-                    sub_name: "신림동",
-                    span1: "오떡순은 2009년에 오픈한 신원시장에서 대표 분식집입니다. 부모님........",
-                    span2: "후기 420 · 단골 1,953 · 떡볶이집"
-                }
-            ];
-            const container = document.querySelector('.button_detail_wrap');
+        const details = [
+            {
+                image: "/images/전체1.jpeg",
+                main_name: "드롱플라워 - 송파",
+                sub_name: "가락1동",
+                span1: "송파구 단골순위 1위 꽃집 !!!",
+                span2: "후기 203 · 단골 1,872 · 꽃집/꽃배달",
+                category: "전체"
+            },
+            {
+                image: "/images/전체2.jpeg",
+                main_name: "흰민용달 흰민이사 용...",
+                sub_name: "화곡동",
+                span1: "이사 용달 용달이사 원룸이사 소형이사 학생이사 당근마켓 후기",
+                span2: "후기 2,354 · 단골 5,017 · 용달이사/용달화물",
+                category: "용달/이사"
+            },
+            {
+                image: "/images/전체3.jpeg",
+                main_name: "윤씨네 즉석두부",
+                sub_name: "신림동",
+                span1: "관악신시장헬서 제일 젊은 사장인 운영중인 곳! 젊은 사장이 하는 곳",
+                span2: "후기 459 · 단골 2,141 · 즉석판매제조가공업",
+                category: "식당"
+            },
+            {
+                image: "/images/전체4.jpeg",
+                main_name: "영클린 홈케어",
+                sub_name: "서현동",
+                span1: "에어컨청소·깨끗하게 해드려요 친환경 세제사용, 고객세척하여 금ㄱ랑ㄴ렅앷퍼ㅑ",
+                span2: "후기 1,047 · 단골 2,346 · 에어컨청소",
+                category: "기타"
+            },
+            {
+                image: "/images/전체5.jpeg",
+                main_name: "가죽공방늘품",
+                sub_name: "봉천동",
+                span1: "한땀한땀 나만의 핸드메이드 제품을 만들고 있는 가죽공방 늘품입니다ㅏㅏㅏ",
+                span2: "후기 143 · 단골 550 · 공방",
+                category: "기타"
+            },
+            {
+                image: "/images/전체6.jpeg",
+                main_name: "씨유네일",
+                sub_name: "독산동",
+                span1: "_see_u_nail 인스타 👉🏽 🧡 네일아트 3인동시 시술가능",
+                span2: "후기 474 · 단골 1,018 · 네일샵",
+                category: "뷰티/미용"
+            },
+            {
+                image: "/images/전체7.jpeg",
+                main_name: "도롱플라워",
+                sub_name: "거제동",
+                span1: "도롱행복 꽃 배송 연제구 들러구 부산진구 금정구 수영구 남구 무정정정정",
+                span2: "후기 626 · 단골 2,038 · 꽃집/꽃배달",
+                category: "기타"
+            },
+            {
+                image: "/images/전체8.jpeg",
+                main_name: "오떡순",
+                sub_name: "신림동",
+                span1: "오떡순은 2009년에 오픈한 신원시장에서 대표 분식집입니다. 부모님과 함께 일하는중",
+                span2: "후기 420 · 단골 1,953 · 떡볶이집",
+                category: "식당"
+            }
+        ];
 
-            details.forEach(detail => {
+        window.onload = function() {
+            displayDetails('전체');
+
+            const buttons = document.querySelectorAll('.category-btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    showinfo(this);
+                    getdata(this);
+                });
+            });
+        };
+
+        function displayDetails(category) {
+            const container = document.querySelector('.button_detail_wrap');
+            container.innerHTML = '';
+
+            const filteredDetails = category === '전체' ? details : details.filter(detail => detail.category === category);
+
+            filteredDetails.forEach(detail => {
                 const detailList = document.createElement('div');
                 detailList.classList.add('detail_list');
 
@@ -318,8 +445,8 @@
                 container.appendChild(detailList);
             });
         }
-        function showinfo(obj) {
 
+        function showinfo(obj) {
             var buttons = document.querySelectorAll('.button_list li button');
             buttons.forEach(function(button) {
                 button.classList.remove('active');
@@ -327,11 +454,12 @@
 
             obj.classList.add('active');
         }
-        function getdata(obj){
-            console.log(obj.innerHTML)
+
+        function getdata(obj) {
+            const category = obj.innerHTML;
+            displayDetails(category);
         }
     </script>
-    
 </head>
 <body>
     <div class="fixed_menu">
@@ -342,21 +470,20 @@
                 <li>동네업체</li>
                 <li>알바</li>
             </ul>
-            <input class="search_bar"type="search" placeholder="물품이나 동네를 검색해보세요">
+            <input class="search_bar" type="search" placeholder="물품이나 동네를 검색해보세요">
             <button class="header_button">채팅하기</button>
         </div>
     </div>
     <header>
         <div class="intro_header">
             <div class="info_text">
-                <h1>동네 이웃들이<br>자주 가는 동네 업체 </h1>
+                <h1>동네 이웃들이<br>자주 가는 동네 업체</h1>
                 <span>우리 동네 사람들이<br>이용하는 업체를 찾아보세요</span>
             </div>
             <img class="jdm" src="images/자주가는동네main이미지.png">
         </div>
-        
     </header>
-    <section>
+    <section class="section1">
         <div>
             <h2>다양한 동네업체를 볼 수 있어요</h2>
         </div>
@@ -391,13 +518,119 @@
             </div> -->
         </div>
     </section>
-    <footer>
+    <section class="section2">
         <div>
-
+            <h2>동네 이웃이 남긴 후기를 찾아보세요</h2>
         </div>
-        <div>
-
+        <div class="after_area">
+            <div class="after_list">
+                <a class="after_link" href="">
+                    <div class="after_first">
+                        <img class="image_area2" src="/images/당근메인이미지.png">
+                        <div class="after_detail">
+                            <div class="ad1">
+                                <span><h3>오떡순</h3></span>
+                                <span>단골</span>
+                            </div>
+                            <div class="ad2">
+                                <span>신림동 인증 8회</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="aaspan">
+                        원장님이 인상도 좋으시고 자세하고 친절하게 설명해 주신 덕분에 편안하게 체험할 수 있었습니다.
+                        당근 보고 왔다고 하니 2만원정도 하는 디톡스 차 서비스로 주셨습니다^^
+                        땀을 쭉 빼고 와서 그런지 몸이 개운합니다~ 
+                        수술한 무릎과 돌덩이 같은 어깨의 통증 치료에 효과를 볼수 있기를 바랍니다.
+                        오늘 감사 했습니다~~
+                    </span>
+                    
+                    <div class="after_item">
+                        <img class="image_area3" src="/images/당근메인이미지.png">
+                        
+                        <div class="ci1">
+                            <span>다이어트 뷰티카페 미타임</span>
+                            <span>후기20 단골 96</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="after_link" href="">
+                    <div class="after_first">
+                        <img class="image_area2" src="/images/당근메인이미지.png">
+                        <div class="after_detail">
+                            <div class="ad1">
+                                <span><h3>오떡순</h3></span>
+                                <span>단골</span>
+                            </div>
+                            <div class="ad2">
+                                <span>신림동 인증 8회</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="aaspan">
+                        원장님이 인상도 좋으시고 자세하고 친절하게 설명해 주신 덕분에 편안하게 체험할 수 있었습니다.
+                        당근 보고 왔다고 하니 2만원정도 하는 디톡스 차 서비스로 주셨습니다^^
+                        땀을 쭉 빼고 와서 그런지 몸이 개운합니다~ 
+                        수술한 무릎과 돌덩이 같은 어깨의 통증 치료에 효과를 볼수 있기를 바랍니다.
+                        오늘 감사 했습니다~~
+                    </span>
+                    
+                    <div class="after_item">
+                        <img class="image_area3" src="/images/당근메인이미지.png">
+                        
+                        <div class="ci1">
+                            <span>다이어트 뷰티카페 미타임</span>
+                            <span>후기20 단골 96</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="after_link" href="">
+                    <div class="after_first">
+                        <img class="image_area2" src="/images/당근메인이미지.png">
+                        <div class="after_detail">
+                            <div class="ad1">
+                                <span><h3>오떡순</h3></span>
+                                <span>단골</span>
+                            </div>
+                            <div class="ad2">
+                                <span>신림동 인증 8회</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="aaspan">
+                        원장님이 인상도 좋으시고 자세하고 친절하게 설명해 주신 덕분에 편안하게 체험할 수 있었습니다.
+                        당근 보고 왔다고 하니 2만원정도 하는 디톡스 차 서비스로 주셨습니다^^
+                        땀을 쭉 빼고 와서 그런지 몸이 개운합니다~ 
+                        수술한 무릎과 돌덩이 같은 어깨의 통증 치료에 효과를 볼수 있기를 바랍니다.
+                        오늘 감사 했습니다~~
+                    </span>
+                    
+                    <div class="after_item">
+                        <img class="image_area3" src="/images/당근메인이미지.png">
+                        
+                        <div class="ci1">
+                            <span>다이어트 뷰티카페 미타임</span>
+                            <span>후기20 단골 96</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
-    </footer>
+        <div class="last_div">
+            <img class="last_img" src="images/당근파비콘.png">
+            <div class="dddd">
+                <h3>
+                    업체를 운영하고 계신가요?
+                </h3>
+                <span>
+                    당근에 등록하고 이웃에 알려보세요!
+                </span>
+            </div>
+            <button class="bizzpro">비즈프로필 만들기</button>
+        </div>
+        
+        
+    </section>
+    <hr>
 </body>
 </html>
