@@ -18,15 +18,95 @@
             /* 클릭시 파란색 배경 없애기 */
             -webkit-tap-highlight-color: transparent;
         }
-        header{
-            height: 64px;
+        /* 헤더 스타일 */
+        header {
+            background-color: white;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background-color: white;
-            z-index: 999;
+            z-index: 1;
         }
+
+        header button {
+            cursor: pointer;
+        }
+
+        .header {
+            height: 64px;
+            margin: 0 160px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            text-decoration: none;
+            margin-right: 40px;
+        }
+
+        .logo img {
+            width: 65px;
+            height: 36px;
+        }
+
+        .nav {
+            width: 661px;
+        }
+
+        .navBar {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            display: flex;
+        }
+
+        .navBar li a {
+            margin-right: 30px;
+            color: #4D5159;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .search-wrap {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar {
+            width: 300px;
+        }
+
+        .search-bar input {
+            width: 288px;
+            height: 40px;
+            background-color: #F2F3F6;
+            padding: 9px 12px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .chatBtn {
+            background-color: #FFFFFF;
+            width: 97.6px;
+            height: 40px;
+            border-radius: 5px;
+            font-weight: 700;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .chatBtn a {
+            font-size: 16px;
+            color: #212124;
+        }
+
         h1{
             line-height: 1.5;
         }
@@ -159,17 +239,23 @@
             background-image: url(https://d1unjqcospf8gs.cloudfront.net/assets/home/trust/3x/img-trust-8-7bb8b91a94c04b7103db580fa2fee6ecadbe0ea6284c6c917cb035bb1a0229ef.png);
         }
         
-        .footer a{
+        /*푸터 부분*/
+        footer a {
             text-decoration: none;
         }
+
         .footer {
             width: 768px;
             margin: 0 auto;
+            width: 100%;
+            border-top: 1px solid rgba(0, 0, 0, 0.2);
         }
 
         .footerA {
+            width: 768px;
             padding: 48px 0px;
             display: flex;
+            margin: 0 auto;
         }
 
         .footerNav {
@@ -228,6 +314,7 @@
             border-top: 1px solid rgba(0, 0, 0, 0.2);
             width: 768px;
             padding: 24px 0px 100px;
+            margin: 0 auto;
             display: flex;
             flex-wrap: wrap;
         }
@@ -279,6 +366,7 @@
             width: 21px;
             height: 21px;
         }
+
         .lang {
             padding: 8px;
             width: 92px;
@@ -288,6 +376,7 @@
             display: flex;
             align-items: center;
         }
+
         .lang span {
             padding-left: 4px;
             padding-right: 16px;
@@ -302,7 +391,30 @@
     </style>
 </head>
 <body>
-    <header></header>
+    <header>
+        <div class="header">
+            <a href="index.html" class="logo"><img src="images/logo.png" alt=""></a>
+            <nav class="nav">
+                <ul class="navBar">
+                    <li><a href="fleamarket.html">중고거래</a></li>
+                    <li><a href="nearby_stores.html">동네업체</a></li>
+                    <li><a href="jobs.html">알바</a></li>
+                    <li><a href="realty.html">부동산</a></li>
+                    <li><a href="car.html">중고차 직거래</a></li>
+                </ul>
+            </nav>
+            <div class="search-wrap">
+
+                <form action="" class="search-bar">
+                    <input type="search" placeholder="물품이나 동네를 검색해보세요">
+                </form>
+
+                <span>
+                    <button class="chatBtn"><a href="login.html">채팅하기</a></button>
+                </span>
+            </div>
+        </div>
+    </header>
     <section class="trust-title">
         <h1 class="title">당신 근처의 믿을 수 있는 중고거래</h1>
         <p class="desc">당근과 함께 가깝고 따뜻한 거래문화를 만들어요.</p>
