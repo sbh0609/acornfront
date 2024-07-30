@@ -498,8 +498,8 @@
             </nav>
             <div class="search-wrap">
 
-                <form action="" class="search-bar">
-                    <input type="search" placeholder="물품이나 동네를 검색해보세요">
+                <form class="search-bar">
+                    <input id="search" type="search" placeholder="물품이나 동네를 검색해보세요">
                 </form>
 
                 <span>
@@ -728,5 +728,16 @@
             </section>
         </div>
     </footer>
+
+    <script>
+        function search(e){
+            e.preventDefault();
+            console.log(e);
+            let searchWord = document.querySelector("#search").value;
+            window.open(`https://www.daangn.com/search/${searchWord}`);
+        }
+
+        document.querySelector(".search-bar").addEventListener("submit", search);
+    </script>
 </body>
 </html>

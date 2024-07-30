@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://d1unjqcospf8gs.cloudfront.net/favicon_rebrand.ico">
     <title>Document</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            let username = document.querySelector(".name");
+            document.title = `${username.textContent}님의 프로필 | 당신 근처의 당근`;
+            console.log(document.title);
+        });
+    </script>
     <style>
         /* 웹폰트 CDN */
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
@@ -513,7 +521,7 @@
         <section class="user-profile">
             <div class="profile-image"></div>
             <h2 class="nickname">
-                직거래갈끄니까
+                <span class="name">직거래갈끄니까</span>
                 <span class="region">시흥동</span>
             </h2>
             <ul class="profile-detail">
@@ -591,6 +599,40 @@
                                         <span>관심 81</span>
                                         ∙
                                         <span>채팅 88</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card">
+                            <a href="fleamarket-post.html" class="card-link">
+                                <div class="card-photo">
+                                    <img src="https://dnvefa72aowie.cloudfront.net/origin/article/202407/40ff8ca8284a55bee1903385a7d166bde952837fcb27b7b01c505a7f6d5cd6f1.jpg?f=webp&q=95&s=1440x1440&t=inside" alt="">
+                                </div>
+                                <div class="card-desc">
+                                    <h2 class="card-title">닌텐도 스위치</h2>
+                                    <div class="card-price">200,000원</div>
+                                    <div class="card-region">시흥동</div>
+                                    <div class="card-counts">
+                                        <span>관심 38</span>
+                                        ∙
+                                        <span>채팅 79</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card">
+                            <a href="fleamarket-post02.html" class="card-link">
+                                <div class="card-photo">
+                                    <img src="images/article1.webp" alt="">
+                                </div>
+                                <div class="card-desc">
+                                    <h2 class="card-title">스팸 일괄</h2>
+                                    <div class="card-price">15,000원</div>
+                                    <div class="card-region">경기도 의정부시 의정부3동</div>
+                                    <div class="card-counts">
+                                        <span>관심 11</span>
+                                        ∙
+                                        <span>채팅 38</span>
                                     </div>
                                 </div>
                             </a>
