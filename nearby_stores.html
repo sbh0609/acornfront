@@ -4,63 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>동네 이웃들이 자주 가는 동네 업체</title>
-    <link rel="icon" type="image/x-icon" href="https://www.danggn.com/_contentweaver/ico_PC_32x32.png">
+    <link rel="icon" type="image/x-icon" href="https://d1unjqcospf8gs.cloudfront.net/favicon_rebrand.ico">
     <style>
         /* 웹폰트 CDN */
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
         * {
-            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-            font-style: normal;
-            padding: 0;
-            margin: 0;
+            font-family: -apple-system;
+            /* 드래그시 파란색 배경 없애기 */
+            user-select: none;
+            /* 클릭시 파란색 배경 없애기 */
+            -webkit-tap-highlight-color: transparent;
+            margin: 0px;
+            padding: 0px;
         }
-        .fixed_menu {
+        .fixed_bar{
+            background-color: white;
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            display: flex;
-            justify-content: center;
-            height: 64px;
+            right: 0;
+            z-index: 1;
         }
-        .fixed_menu2 {
-            width: 1200px;
+        .fixed_bar1 {
+            height: 64px;
+            margin: 0 160px;
+            padding: 12px 20px;
             display: flex;
             align-items: center;
-            position: relative;
-            padding: 12px 20px;
+            box-sizing: border-box;
         }
-        .fixed_menu ul {
+
+        .logo {
+            text-decoration: none;
+            margin-right: 40px;
+        }
+
+        .logo img {
+            width: 65px;
+            height: 36px;
+        }
+
+        .nav {
+            width: 661px;
+        }
+
+        .navBar {
             list-style: none;
+            margin: 0px;
+            padding: 0px;
             display: flex;
-            margin-right: 400px;
-            justify-content: center;
-            padding-left: 30px;
         }
-        .fixed_menu ul li {
-            margin: 0px 30px 0px 0px;
-            font-size: 17px;
+
+        .navBar li a {
+            margin-right: 30px;
+            color: #4D5159;
+            font-size: 18px;
+            font-weight: 700;
         }
-        .search_bar {
-            background-color: #F2F3F6;
-            border-radius: 5px;
-            border: none;
+
+        a {
+            text-decoration: none;
+        }
+
+        .search-wrap {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar {
+            width: 300px;
+        }
+
+        .search-bar input {
             width: 288px;
             height: 40px;
+            background-color: #F2F3F6;
             padding: 9px 12px;
-            font-size: 17px;
-        }
-        .header_button {
+            outline: none;
+            border: none;
             border-radius: 5px;
-            width: 98px;
+            font-size: 16px;
+        }
+
+        .chatBtn {
+            background-color: #FFFFFF;
+            width: 97.6px;
             height: 40px;
-            margin: 15px;
-            border: 2px solid black;
-            background-color: white;
-            font-size: 17px;
+            border-radius: 5px;
+            font-weight: 700;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+        }
+        .chatBtn a {
+            font-size: 16px;
+            color: #212124;
         }
         header {
             margin-top: 64px;
@@ -172,12 +208,21 @@
             display: flex;
             flex-direction: column;
             margin-left: 10px;
-        }
-        .detail_name {
-            width: 100%;
+            
         }
         .detail_name_info {
             display: flex;
+        }
+        .detail_name {
+            width: 100%;
+            color: black;
+        }
+        
+        .sub_name{
+            font-size: small;
+            color: gray;
+            margin-left: 8px;
+            margin-top: 5px;
         }
         .span1 {
             width: 240px;
@@ -187,12 +232,16 @@
             line-clamp: 2;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
+            color: black;
+            margin-bottom: 8px;
         }
-        aaspan
+        
         .span2 {
             max-width: 240px;
             word-wrap: break-word;
             word-break: break-all;
+            color: gray;
+            font-size: small;
         }
         .section2{
             width: 768px;
@@ -202,6 +251,7 @@
             display: flex;
             flex-direction: column;
             margin-top: 50px;
+            margin-bottom: 50px;
         }
         .section2 h2{
             font-size: 32px;
@@ -235,17 +285,36 @@
         }
         .after_first{
             display: flex;
+            color: black;
         }
         .ad1{
             display: flex;
         }
+        .ad11{
+            width: 100%;
+            color: black;
+            font-size: medium;
+        }
+        .ad12{
+            font-size: small;
+            color: white;
+            margin-left: 8px;
+            margin-top: 2px;
+            border-radius: 10px;
+            background-color: rgb(221, 107, 13);
+            width: 40px;
+            text-align: center;
+        }
         .ad2    {
             display: flex;
+            color: gray;
+            font-size: small;
         }
         .after_item{
             display: flex;
             border: 0.5px solid lightgray;
             border-radius: 7px;
+            color: black;
         }
         
         .image_area3{
@@ -258,6 +327,7 @@
             flex-direction: column;
             justify-content: center; /* 추가 */
             margin-left: 10px; /* 이미지와 텍스트 사이의 간격 조정 */
+            
         }
         .aaspan {
             margin-top: 7px;
@@ -269,6 +339,11 @@
             line-clamp: 2;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
+            color: black;
+        }
+        .ci1 > span{
+            color: gray;
+            font-size: small;
         }
         .last_div{
             display: flex;
@@ -300,84 +375,633 @@
             top: 43px;
             font-size: 18px;
             border: none;
-            background-color: orange;
+            background-color: orangered;
             border-radius: 6px;
             color: white;
             font-weight: bold;
         }
         hr{
             margin-top: 80px;
-            
         }
+        /*푸터 부분*/
+        a {
+            text-decoration: none;
+        }
+
+        .footer {
+            width: 768px;
+            margin: 0 auto;
+            width: 100%;
+            border-top: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .footerA {
+            width: 768px;
+            padding: 48px 0px;
+            display: flex;
+            margin: 0 auto;
+        }
+
+        .footerNav {
+            display: flex;
+            width: 464px;
+        }
+
+        .footerNavbar {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footerNavbar li {
+            padding: 16.6px;
+            padding-right: 25.6px;
+        }
+
+        .footerNavbar li a {
+            font-size: 14px;
+            color: #212124;
+        }
+
+        .DownloadDiv1 {
+            font-size: 14px;
+            color: #212124;
+            font-weight: 700;
+        }
+
+        .DownloadDiv2 {
+            margin-top: 10px;
+        }
+
+        .DownloadDiv2 a {
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+            border-radius: 10px;
+            width: 147px;
+            height: 44px;
+        }
+
+        .AppStore {
+            background-image: url("images/AppStore.png");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .GooglePlay {
+            background-image: url("images/GooglePlay.png");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .footerB {
+            border-top: 1px solid rgba(0, 0, 0, 0.2);
+            width: 768px;
+            padding: 24px 0px 100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .infoWrap {
+            width: 430px;
+        }
+
+        .info div span {
+            font-size: 13px;
+            color: #868B94;
+        }
+
+        .info div span b {
+            font-size: 13px;
+            margin-right: 3px;
+        }
+
+        .infoStick::after {
+            content: "|";
+            margin: 0;
+            opacity: 0.4;
+        }
+
+        .infoNav {
+            margin: 16px 0px;
+        }
+
+        .infoNav a {
+            text-decoration: none;
+            color: #868B94;
+            font-size: 13px;
+            margin-right: 16px;
+            font-weight: 700;
+        }
+
+        .snsWrap {
+            margin-left: 50px;
+            width: 280px;
+            display: flex;
+        }
+
+        .snsWrap a {
+            padding-top: 4px;
+            margin-right: 16px;
+        }
+
+        .snsWrap a img {
+            width: 21px;
+            height: 21px;
+        }
+
+        .lang {
+            padding: 8px;
+            width: 92px;
+            height: 14px;
+            font-size: 14px;
+            color: #868B94;
+            display: flex;
+            align-items: center;
+        }
+
+        .lang span {
+            padding-left: 4px;
+            padding-right: 16px;
+        }
+
+        .rules a {
+            color: #868B94;
+            font-size: 13px;
+            font-weight: 700;
+            margin-right: 16px;
+        }
+
     </style>
     <script>
-        const details = [
-            {
-                image: "/images/전체1.jpeg",
-                main_name: "드롱플라워 - 송파",
-                sub_name: "가락1동",
-                span1: "송파구 단골순위 1위 꽃집 !!!",
-                span2: "후기 203 · 단골 1,872 · 꽃집/꽃배달",
-                category: "전체"
-            },
-            {
-                image: "/images/전체2.jpeg",
-                main_name: "흰민용달 흰민이사 용...",
-                sub_name: "화곡동",
-                span1: "이사 용달 용달이사 원룸이사 소형이사 학생이사 당근마켓 후기",
-                span2: "후기 2,354 · 단골 5,017 · 용달이사/용달화물",
-                category: "용달/이사"
-            },
-            {
-                image: "/images/전체3.jpeg",
-                main_name: "윤씨네 즉석두부",
-                sub_name: "신림동",
-                span1: "관악신시장헬서 제일 젊은 사장인 운영중인 곳! 젊은 사장이 하는 곳",
-                span2: "후기 459 · 단골 2,141 · 즉석판매제조가공업",
-                category: "식당"
-            },
-            {
-                image: "/images/전체4.jpeg",
-                main_name: "영클린 홈케어",
-                sub_name: "서현동",
-                span1: "에어컨청소·깨끗하게 해드려요 친환경 세제사용, 고객세척하여 금ㄱ랑ㄴ렅앷퍼ㅑ",
-                span2: "후기 1,047 · 단골 2,346 · 에어컨청소",
-                category: "기타"
-            },
-            {
-                image: "/images/전체5.jpeg",
-                main_name: "가죽공방늘품",
-                sub_name: "봉천동",
-                span1: "한땀한땀 나만의 핸드메이드 제품을 만들고 있는 가죽공방 늘품입니다ㅏㅏㅏ",
-                span2: "후기 143 · 단골 550 · 공방",
-                category: "기타"
-            },
-            {
-                image: "/images/전체6.jpeg",
-                main_name: "씨유네일",
-                sub_name: "독산동",
-                span1: "_see_u_nail 인스타 👉🏽 🧡 네일아트 3인동시 시술가능",
-                span2: "후기 474 · 단골 1,018 · 네일샵",
-                category: "뷰티/미용"
-            },
-            {
-                image: "/images/전체7.jpeg",
-                main_name: "도롱플라워",
-                sub_name: "거제동",
-                span1: "도롱행복 꽃 배송 연제구 들러구 부산진구 금정구 수영구 남구 무정정정정",
-                span2: "후기 626 · 단골 2,038 · 꽃집/꽃배달",
-                category: "기타"
-            },
-            {
-                image: "/images/전체8.jpeg",
-                main_name: "오떡순",
-                sub_name: "신림동",
-                span1: "오떡순은 2009년에 오픈한 신원시장에서 대표 분식집입니다. 부모님과 함께 일하는중",
-                span2: "후기 420 · 단골 1,953 · 떡볶이집",
-                category: "식당"
-            }
-        ];
-
+const details = [
+    {
+        image: "/images/전체1.jpeg",
+        main_name: "드롱플라워 - 송파",
+        sub_name: "가락1동",
+        span1: "송파구 단골순위 1위 꽃집 !!!",
+        span2: "후기 203 · 단골 1,874 · 꽃집/꽃배달",
+        category: "전체"
+    },
+    {
+        image: "/images/전체2.jpeg",
+        main_name: "흰민용달 흰민이사 용...",
+        sub_name: "화곡동",
+        span1: "이사 용달 용달이사 원룸이사 소형이사 학생이사 당근마켓 후기",
+        span2: "후기 2,354 · 단골 5,017 · 용달이사/용달화물",
+        category: "전체"
+    },
+    {
+        image: "/images/전체3.jpeg",
+        main_name: "윤씨네 즉석두부",
+        sub_name: "신림동",
+        span1: "관악신시장에서 제일 젊은 사장이 운영중인 곳! 젊은 사장이 하는 곳",
+        span2: "후기 461 · 단골 2,145 · 즉석판매제조가공업",
+        category: "전체"
+    },
+    {
+        image: "/images/전체4.jpeg",
+        main_name: "영클린 홈케어",
+        sub_name: "서현동",
+        span1: "에어컨청소·깨끗하게 해드려요 친환경 세제사용, 고객세척하여 금ㄱ랑ㄴ렅앷퍼ㅑ",
+        span2: "후기 1,050 · 단골 2,349 · 에어컨청소",
+        category: "전체"
+    },
+    {
+        image: "/images/전체5.jpeg",
+        main_name: "가죽공방늘품",
+        sub_name: "봉천동",
+        span1: "한땀한땀 나만의 핸드메이드 제품을 만들고 있는 가죽공방 늘품입니다ㅏㅏㅏ",
+        span2: "후기 143 · 단골 553 · 공방",
+        category: "전체"
+    },
+    {
+        image: "/images/전체6.jpeg",
+        main_name: "씨유네일",
+        sub_name: "독산동",
+        span1: "_see_u_nail 인스타 👉🏽 🧡 네일아트 3인동시 시술가능",
+        span2: "후기 474 · 단골 1,022 · 네일샵",
+        category: "전체"
+    },
+    {
+        image: "/images/전체7.jpeg",
+        main_name: "도롱플라워",
+        sub_name: "거제동",
+        span1: "도롱행복 꽃 배송 연제구 들러구 부산진구 금정구 수영구 남구 무정정정정",
+        span2: "후기 626 · 단골 2,037 · 꽃집/꽃배달",
+        category: "전체"
+    },
+    {
+        image: "/images/전체8.jpeg",
+        main_name: "오떡순",
+        sub_name: "신림동",
+        span1: "오떡순은 2009년에 오픈한 신원시장에서 대표 분식집입니다. 부모님과 함께 일하는중",
+        span2: "후기 420 · 단골 1,957 · 떡볶이집",
+        category: "전체"
+    },
+    {
+        image: "/images/식당1.jpeg",
+        main_name: "오떡순",
+        sub_name: "신림동",
+        span1: "오떡순은 2009년에 오픈한 신원시장에서 대표 분식집입니다. 부모님과 함께 일하는중",
+        span2: "후기 420 · 단골 1,957 · 떡볶이집",
+        category: "식당"
+    },
+    {
+        image: "/images/식당2.jpeg",
+        main_name: "정김밥",
+        sub_name: "신림동",
+        span1: "음식은 정성입니다!!! 정김밥은 정직한 재료로 정갈한 김밥을 고집합니다",
+        span2: "후기 237 · 단골 1,235 · 분식",
+        category: "식당"
+    },
+    {
+        image: "/images/식당3.jpeg",
+        main_name: "미소부각",
+        sub_name: "물금읍",
+        span1: "건강한 먹거리를 고집하는 미소김부각입니다. 좋은김에 참쌀 100% 사용",
+        span2: "후기 216 · 단골 2,149 · 간식",
+        category: "식당"
+    },
+    {
+        image: "/images/식당4.jpeg",
+        main_name: "명성왕족발",
+        sub_name: "신림동",
+        span1: "맛의 승부사 명성왕족발 최고입니다!!",
+        span2: "후기 157 · 단골 835 · 족발/보쌈",
+        category: "식당"
+    },
+    {
+        image: "/images/식당5.jpeg",
+        main_name: "아비꼬 신림역점",
+        sub_name: "신림동",
+        span1: "1인1메뉴주문하시면 카레소스와 밥을 무한리필 해드립니다. 당근마켓 후기",
+        span2: "후기 3 · 단골 702 · 카레전문점",
+        category: "식당"
+    },
+    {
+        image: "/images/식당6.jpeg",
+        main_name: "불꽃닭강정",
+        sub_name: "신림동",
+        span1: "맛있는 닭강정, 새우강정 판매합니다. 매일매일 수제로 엄지부터 발끝까지",
+        span2: "후기 121 · 단골 737 · 치킨/닭강정",
+        category: "식당"
+    },
+    {
+        image: "/images/식당7.jpeg",
+        main_name: "고결 한우 직판장",
+        sub_name: "곡반정동",
+        span1: "고결한우는 2대째부터 판매까지 이어온 전통있는 한우직판장입니다",
+        span2: "후기 122 · 단골 1,024 · 고기요리",
+        category: "식당"
+    },
+    {
+        image: "/images/식당8.jpeg",
+        main_name: "이프로마켓",
+        sub_name: "구룡포읍",
+        span1: "서민갑 떡 432회 출연 선주 이프로 인사드려요!! 단골 고객을 위하여",
+        span2: "후기 39 · 단골 437 · 구내식당/자금음식점",
+        category: "식당"
+    },
+    {
+        image: "/images/식당9.jpeg",
+        main_name: "SSOG 자연산 딱새우회",
+        sub_name: "풍무동",
+        span1: "안녕하세요! 제주보다 맛있는 자연산 딱새우회 전문점 SSOG입니다",
+        span2: "후기 34 · 단골 713 · 횟집",
+        category: "식당"
+    },
+    {
+        image: "/images/식당10.jpeg",
+        main_name: "통큰시장탕수육",
+        sub_name: "신림동",
+        span1: "신원시장에서 1997년부터 탕수육을 만들어온 시장탕수육입니다. 가성비 최고",
+        span2: "후기 88 · 단골 1,189 · 중식",
+        category: "식당"
+    },
+    {
+        image: "/images/카페1.jpeg",
+        main_name: "드립시스(마곡mgm엠...",
+        sub_name: "마곡동",
+        span1: "#10월부터 영업시간 흘무 변경됩니다:) 영업시간 : 화~토10시~19시",
+        span2: "후기 220 · 단골 1,328 · 커피전문점",
+        category: "카페"
+    },
+    {
+        image: "/images/카페2.jpeg",
+        main_name: "라떼연구소(LATTE LA...",
+        sub_name: "청학동",
+        span1: "안녕하세요 라떼연구소 입니다. 17:30 이후의 주문은 빠른 품절로...",
+        span2: "후기 274 · 단골 951 · 카페",
+        category: "카페"
+    },
+    {
+        image: "/images/카페3.jpeg",
+        main_name: "카이저커피",
+        sub_name: "둔촌동",
+        span1: "이제 커피숍을 운영합니다. 연수동 세경아파트 상가에 있는 카페입니...",
+        span2: "후기 330 · 단골 1,890 · 커피숍",
+        category: "카페"
+    },
+    {
+        image: "/images/카페4.jpeg",
+        main_name: "커피콩콩",
+        sub_name: "장성동",
+        span1: "**우리는 달콤함의 새로운 차원을 열다!** 안녕하세요! 2017년 청...",
+        span2: "후기 120 · 단골 711 · 마카롱",
+        category: "카페"
+    },
+    {
+        image: "/images/카페5.jpeg",
+        main_name: "헨즈(HANDS)",
+        sub_name: "석현동",
+        span1: "마카롱 전문점입니다! 향림현대 1차입구 초록샷향 커피를 끼고 도...",
+        span2: "후기 1 · 단골 228 · 제과/제빵",
+        category: "카페"
+    },
+    {
+        image: "/images/카페6.jpeg",
+        main_name: "늘봄정원",
+        sub_name: "봉산동",
+        span1: "100% 쌀로만든 수제 구움과자 입니다^^ 자일로스설탕을 사용하여...",
+        span2: "후기 9 · 단골 664 · 베이커리",
+        category: "카페"
+    },
+    {
+        image: "/images/카페7.jpeg",
+        main_name: "스위트팩토리 월성본점",
+        sub_name: "월성동",
+        span1: "이벤트:)10,000원이상 현금 또는 계좌이체 시 만원 및 마카롱1개...",
+        span2: "후기 282 · 단골 3,341 · 카페/디저트",
+        category: "카페"
+    },
+    {
+        image: "/images/카페8.jpeg",
+        main_name: "원레이",
+        sub_name: "이의동",
+        span1: "파이지부터 필링까지 100% 직접 만드는 원레이 수제 에그타르...",
+        span2: "후기 162 · 단골 1,661 · 카페",
+        category: "카페"
+    },
+    {
+        image: "/images/카페9.jpeg",
+        main_name: "디저트카페 모윰지",
+        sub_name: "광명동",
+        span1: "광명전지역 무료배송입니다구로부천 금천 배송 가능합니다 디저...",
+        span2: "후기 230 · 단골 931 · 카페",
+        category: "카페"
+    },
+    {
+        image: "/images/카페10.jpeg",
+        main_name: "스꼬피",
+        sub_name: "연산동",
+        span1: "매일매일 손반죽하고 아침마다 매장에서 직접 구운 따뜻한 스콘...",
+        span2: "후기 152 · 단골 792 · 베이커리",
+        category: "카페"
+    },
+    {
+        image: "/images/이사1.jpeg",
+        main_name: "흰민용달 흰민이사 용...",
+        sub_name: "화곡동",
+        span1: "이사 용달 용달이사 원룸이사 소형이사 학생이사 당근마켓 후기",
+        span2: "후기 2,354 · 단골 5,017 · 용달이사/용달화물",
+        category: "용달/이사"
+    },
+    {
+        image: "/images/이사2.jpeg",
+        main_name: "노랑이사/용달",
+        sub_name: "신림동",
+        span1: "원룸이사, 용달이사, 이사, 가전/가구 용달! 언제든지 연락주세요~",
+        span2: "후기 1,294 · 단골 4,705 · 용달이사/용달화물",
+        category: "용달/이사"
+    },
+    {
+        image: "/images/이사3.jpg",
+        main_name: "스마일용달",
+        sub_name: "상도제4동",
+        span1: "저렴한 가격",
+        span2: "후기 1,675 · 단골 1,874 · 이사",
+        category: "용달/이사"
+    },
+    {
+        image: "/images/이사4.jpeg",
+        main_name: "날라라 슈퍼 붕고",
+        sub_name: "내발산동",
+        span1: "010-8904-0322 승용차로 거래하기 힘든 사이즈 물건들 있으시면 맡겨주세요",
+        span2: "후기 869 · 단골 2,998 · 용달이사/용달화물",
+        category: "용달/이사"
+    },
+    {
+        image: "/images/이사5.jpeg",
+        main_name: "전국가화물운송 용달",
+        sub_name: "성북동",
+        span1: "안녕하세요~ 생활가구 및 가전제품 단순송송부터 원룸이사부터 대형사무실 이사까지",
+        span2: "후기 1,532 · 단골 2,021 · 용달이사/용달화물",
+        category: "용달/이사"
+    },
+    {
+        image: "/images/이사6.jpeg",
+        main_name: "베스트용달이사",
+        sub_name: "태릉동",
+        span1: "안녕하세요^^ 당근송송업체 후기 좋은 베스트용달이사 입니다! 차량다수 보유",
+        span2: "후기 1,020 · 단골 2,650 · 용달이사/용달화물",
+        category: "용달/이사"
+    },
+    {
+        image: "/images/이사7.jpeg",
+        main_name: "용달이사는 성북트럭",
+        sub_name: "길음동",
+        span1: "서울 전지역 (전국 배송) 소형 원룸, 투룸 이사 / 가구 가전 운반 언제든지 연락주세요",
+        span2: "후기 871 · 단골 2,808 · 용달이사/용달화물",
+        category: "용달/이사"
+    },
+    {
+        image: "/images/이사8.jpeg",
+        main_name: "친구용달 이사",
+        sub_name: "낙양읍",
+        span1: "5000원 무료할인 쿠폰 이벤트 중 기본운송 3만원~",
+        span2: "후기 112 · 단골 626 · 퀵서비스",
+        category: "용달/이사"
+    },
+    {
+        image: "/images/이사9.jpeg",
+        main_name: "싸니까다실어 젊은 이사...",
+        sub_name: "문현동",
+        span1: "포장이사 원룸이사 이사폐기물 전문 싸니까다실어 용달이사 업체 입니다",
+        span2: "후기 314 · 단골 1,532 · 포장이사",
+        category: "용달/이사"
+    },
+    {
+        image: "/images/이사10.jpeg",
+        main_name: "동경화물&이사",
+        sub_name: "오목천동",
+        span1: "용달이사 업체. 고객님과 소통하는 젊은일꾼! 동경화물&이사 전문 업체 입니다",
+        span2: "후기 766 · 단골 2,485 · 용달이사/용달화물",
+        category: "용달/이사"
+    },
+    {
+        image: "/images/뷰티1.jpeg",
+        main_name: "씨유네일",
+        sub_name: "독산동",
+        span1: "_see_u_nail 인스타 👉🏽 🧡 네일아트 3인동시 시술가능",
+        span2: "후기 477 · 단골 1,022 · 네일샵",
+        category: "뷰티/미용"
+    },
+    {
+        image: "/images/뷰티2.jpeg",
+        main_name: "뿜네일 ppom.nail",
+        sub_name: "두산동",
+        span1: "* 카드, 현금가 동일 합니다* 적립금 15% 추가 적립 월드4회 - 12만원",
+        span2: "후기 539 · 단골 385 · 네일샵",
+        category: "뷰티/미용"
+    },
+    {
+        image: "/images/뷰티3.jpeg",
+        main_name: "미미블리",
+        sub_name: "은행동",
+        span1: "~짧고, 모량이 적은 속눈썹도 가능~1:1 맞춤 펌으로 고객님 취향 100%",
+        span2: "후기 756 · 단골 876 · 속눈썹펌/연장",
+        category: "뷰티/미용"
+    },
+    {
+        image: "/images/뷰티4.jpeg",
+        main_name: "네일미미",
+        sub_name: "미아동",
+        span1: "꼼꼼시술 착한가격 유지력 일등 네일샵 (당일 예약 가능) 예약문의",
+        span2: "후기 215 · 단골 1,664 · 네일샵",
+        category: "뷰티/미용"
+    },
+    {
+        image: "/images/뷰티5.jpeg",
+        main_name: "뷰티아이",
+        sub_name: "역촌동",
+        span1: "안녕하세요. 구산역 2번출구 도보 5분/응암역 3출구 도보 7분거리",
+        span2: "후기 465 · 단골 2,184 · 속눈썹펌/연장",
+        category: "뷰티/미용"
+    },
+    {
+        image: "/images/뷰티6.jpeg",
+        main_name: "최저왁싱n전신관리n...",
+        sub_name: "대연동",
+        span1: "전신관리(마사지)/왁싱/속눈썹펌/토탈가능 한샵~ 샤워실 완비",
+        span2: "후기 300 · 단골 808 · 왁싱",
+        category: "뷰티/미용"
+    },
+    {
+        image: "/images/뷰티7.jpeg",
+        main_name: "뷰티루나 네일아트",
+        sub_name: "송파동",
+        span1: "1:1 맞춤 송파구에서 제일 힙한 네일샵 (힘들게 홍대까지 가지말아요)",
+        span2: "후기 461 · 단골 682 · 네일샵",
+        category: "뷰티/미용"
+    },
+    {
+        image: "/images/뷰티8.jpeg",
+        main_name: "하하도트",
+        sub_name: "용두동",
+        span1: "글루수사용 노글루수분펌 전문샵 1호선 제기동역, 2층",
+        span2: "후기 691 · 단골 1,478 · 속눈썹펌/연장",
+        category: "뷰티/미용"
+    },
+    {
+        image: "/images/뷰티9.jpeg",
+        main_name: "따숲 원적외선 다이어트",
+        sub_name: "갈마동",
+        span1: "원적외선 찜질카페^ 앉아서 계셔도, 한달 5kg 빠집니다!! 할일 하면서 다이어트",
+        span2: "후기 181 · 단골 1,287 · 체형관리",
+        category: "뷰티/미용"
+    },
+    {
+        image: "/images/뷰티10.jpeg",
+        main_name: "동안피인스킨&과사",
+        sub_name: "미아동",
+        span1: "흔하게 받을 수 있는 뷰티 마사지가 아닌 어딘가에서 받아보신적 있는 체형관리",
+        span2: "후기 231 · 단골 2,032 · 피부관리",
+        category: "뷰티/미용"
+    },
+    {
+        image: "/images/헬스1.jpeg",
+        main_name: "출장PT컨디셔닝 지홈트...",
+        sub_name: "중동",
+        span1: "부산, 울산 방문PT 출장컨디셔닝 - 근막통증증후군, 거북목, 굽은등 교정",
+        span2: "후기 226 · 단골 1,502 · PT/GX수업",
+        category: "헬스/필라테스/요가"
+    },
+    {
+        image: "/images/헬스2.jpg",
+        main_name: "국민 필라테스 x 헬스장",
+        sub_name: "대화동",
+        span1: "24시간 연중무휴(외부 보안 시스템) : 얼굴 인식으로 스마트하게 관리",
+        span2: "후기 104 · 단골 2,016 · 필라테스",
+        category: "헬스/필라테스/요가"
+    },
+    {
+        image: "/images/헬스3.jpeg",
+        main_name: "스웻바이브",
+        sub_name: "장기동",
+        span1: "안녕하세요, 스웻바이브 Sweat Vibe 입니다 :) 스웻바이브는 전문 트레이너가 함께합니다",
+        span2: "후기 146 · 단골 336 · 헬스",
+        category: "헬스/필라테스/요가"
+    },
+    {
+        image: "/images/헬스4.jpeg",
+        main_name: "필라테스바이브",
+        sub_name: "방이동",
+        span1: "안녕하세요 방이동 No.1 필라테스 바이브입니다 필라테스가 많지만...",
+        span2: "후기 82 · 단골 516 · 필라테스",
+        category: "헬스/필라테스/요가"
+    },
+    {
+        image: "/images/헬스5.jpg",
+        main_name: "탭트 필라테스 이수본점",
+        sub_name: "사당동",
+        span1: "KBS 무엇이든 물어보세요 필라테스 전문가로 다수 출연한 김태연",
+        span2: "후기 64 · 단골 382 · 필라테스",
+        category: "헬스/필라테스/요가"
+    },
+    {
+        image: "/images/헬스6.jpeg",
+        main_name: "헤이짐점",
+        sub_name: "공릉동",
+        span1: "안녕하세요 소의초등학교 건너편에 위치한 실내 트레이닝짐입니다.",
+        span2: "후기 16 · 단골 298 · PT/GX수업",
+        category: "헬스/필라테스/요가"
+    },
+    {
+        image: "/images/헬스7.jpeg",
+        main_name: "아리아요가 야탑역점",
+        sub_name: "야탑동",
+        span1: "대한민국 대표 프랜차이즈 요가센터 아리아요가&필라테스 야탑역점",
+        span2: "후기 71 · 단골 100 · 요가",
+        category: "헬스/필라테스/요가"
+    },
+    {
+        image: "/images/헬스8.jpeg",
+        main_name: "대한민국 필라테스 부...",
+        sub_name: "송내동",
+        span1: "송내동 유일 주7일 필라테스 지금바로 문의주세요! 전문 강사진",
+        span2: "후기 38 · 단골 484 · 필라테스",
+        category: "헬스/필라테스/요가"
+    },
+    {
+        image: "/images/헬스9.jpg",
+        main_name: "광명발라필라테스",
+        sub_name: "광명동",
+        span1: "발라필라테스 산전/산후 전문 필라테스 센터입니다. 맨즈 재활 필라테스도 운영중",
+        span2: "후기 99 · 단골 265 · 필라테스",
+        category: "헬스/필라테스/요가"
+    },
+    {
+        image: "/images/헬스10.jpeg",
+        main_name: "바디홀릭 필라테스 호...",
+        sub_name: "논현동",
+        span1: "인천 남동구 최대규모 여성전용 필라테스 그립필에서 요가, 필라테스",
+        span2: "후기 127 · 단골 691 · 필라테스",
+        category: "헬스/필라테스/요가"
+    }
+    
+];
         window.onload = function() {
             displayDetails('전체');
 
@@ -394,7 +1018,7 @@
             const container = document.querySelector('.button_detail_wrap');
             container.innerHTML = '';
 
-            const filteredDetails = category === '전체' ? details : details.filter(detail => detail.category === category);
+            const filteredDetails = details.filter(detail => detail.category === category);
 
             filteredDetails.forEach(detail => {
                 const detailList = document.createElement('div');
@@ -416,10 +1040,12 @@
 
                 const nameSpan = document.createElement('span');
                 const nameH3 = document.createElement('h3');
+                nameH3.classList.add('detail_name');
                 nameH3.textContent = detail.main_name;
                 nameSpan.appendChild(nameH3);
 
                 const locationSpan = document.createElement('span');
+                locationSpan.classList.add('sub_name');
                 locationSpan.textContent = detail.sub_name;
 
                 detailNameInfo.appendChild(nameSpan);
@@ -462,16 +1088,28 @@
     </script>
 </head>
 <body>
-    <div class="fixed_menu">
-        <div class="fixed_menu2">
-            <a href="index.html"><img class="danggn_image" src="/images/당근메인이미지.png"></a>
-            <ul>
-                <li>중고거래</li>
-                <li>동네업체</li>
-                <li>알바</li>
-            </ul>
-            <input class="search_bar" type="search" placeholder="물품이나 동네를 검색해보세요">
-            <button class="header_button">채팅하기</button>
+    <div class="fixed_bar">
+        <div class="fixed_bar1">
+            <a href="index.html" class="logo"><img src="images/logo.png" alt=""></a>
+            <nav class="nav">
+                <ul class="navBar">
+                    <li><a href="fleamarket.html">중고거래</a></li>
+                    <li><a href="nearby_stores.html">동네업체</a></li>
+                    <li><a href="jobs.html">알바</a></li>
+                    <li><a href="realty.html">부동산</a></li>
+                    <li><a href="car.html">중고차 직거래</a></li>
+                </ul>
+            </nav>
+            <div class="search-wrap">
+
+                <form action="" class="search-bar">
+                    <input type="search" placeholder="물품이나 동네를 검색해보세요">
+                </form>
+
+                <span>
+                    <button class="chatBtn"><a href="login.html">채팅하기</a></button>
+                </span>
+            </div>
         </div>
     </div>
     <header>
@@ -526,98 +1164,115 @@
             <div class="after_list">
                 <a class="after_link" href="">
                     <div class="after_first">
-                        <img class="image_area2" src="/images/당근메인이미지.png">
+                        <img class="image_area2" src="/images/after11.jpg">
                         <div class="after_detail">
                             <div class="ad1">
-                                <span><h3>오떡순</h3></span>
-                                <span>단골</span>
+                                <span><h3 class="ad11">미소</h3></span>
+                                <span class="ad12">단골</span>
                             </div>
                             <div class="ad2">
-                                <span>신림동 인증 8회</span>
+                                <span>삼산동 인증 8회</span>
                             </div>
                         </div>
                     </div>
                     <span class="aaspan">
                         원장님이 인상도 좋으시고 자세하고 친절하게 설명해 주신 덕분에 편안하게 체험할 수 있었습니다.
                         당근 보고 왔다고 하니 2만원정도 하는 디톡스 차 서비스로 주셨습니다^^
-                        땀을 쭉 빼고 와서 그런지 몸이 개운합니다~ 
+                        땀을 쭉 빼고 와서 그런지 몸이 개운합니다~
                         수술한 무릎과 돌덩이 같은 어깨의 통증 치료에 효과를 볼수 있기를 바랍니다.
                         오늘 감사 했습니다~~
                     </span>
                     
                     <div class="after_item">
-                        <img class="image_area3" src="/images/당근메인이미지.png">
+                        <img class="image_area3" src="/images/after21.jpeg">
                         
                         <div class="ci1">
-                            <span>다이어트 뷰티카페 미타임</span>
-                            <span>후기20 단골 96</span>
+                            <p>다이어트 뷰티카페 미타임</p>
+                            <span>후기 20 단골 96</span>
                         </div>
                     </div>
                 </a>
                 <a class="after_link" href="">
                     <div class="after_first">
-                        <img class="image_area2" src="/images/당근메인이미지.png">
+                        <img class="image_area2" src="/images/smile.png">
                         <div class="after_detail">
                             <div class="ad1">
-                                <span><h3>오떡순</h3></span>
-                                <span>단골</span>
+                                <span><h3 class="ad11">ABC쥬스맛있어</h3></span>
                             </div>
                             <div class="ad2">
-                                <span>신림동 인증 8회</span>
+                                <span>연동 인증 0회</span>
                             </div>
                         </div>
                     </div>
                     <span class="aaspan">
-                        원장님이 인상도 좋으시고 자세하고 친절하게 설명해 주신 덕분에 편안하게 체험할 수 있었습니다.
-                        당근 보고 왔다고 하니 2만원정도 하는 디톡스 차 서비스로 주셨습니다^^
-                        땀을 쭉 빼고 와서 그런지 몸이 개운합니다~ 
-                        수술한 무릎과 돌덩이 같은 어깨의 통증 치료에 효과를 볼수 있기를 바랍니다.
-                        오늘 감사 했습니다~~
+                        후기 먼저 쓰고 세차받기! 대만족 미리 예상 + 세차 후 사진 업로드 완료 첫번째 비교사진 장이 ABC쥬스는 정말 맛있어!
                     </span>
                     
                     <div class="after_item">
-                        <img class="image_area3" src="/images/당근메인이미지.png">
+                        <img class="image_area3" src="/images/after22.jpeg">
                         
                         <div class="ci1">
-                            <span>다이어트 뷰티카페 미타임</span>
-                            <span>후기20 단골 96</span>
+                            <p>디테일링K</p>
+                            <span>후기 16 단골 251</span>
                         </div>
                     </div>
                 </a>
                 <a class="after_link" href="">
                     <div class="after_first">
-                        <img class="image_area2" src="/images/당근메인이미지.png">
+                        <img class="image_area2" src="/images/after12.jpg">
                         <div class="after_detail">
                             <div class="ad1">
-                                <span><h3>오떡순</h3></span>
-                                <span>단골</span>
+                                <span><h3 class="ad11">찰이율이맘</h3></span>
+                                <span class="ad12">단골</span>
                             </div>
                             <div class="ad2">
-                                <span>신림동 인증 8회</span>
+                                <span>울릉사전동 인증 20회</span>
                             </div>
                         </div>
                     </div>
                     <span class="aaspan">
-                        원장님이 인상도 좋으시고 자세하고 친절하게 설명해 주신 덕분에 편안하게 체험할 수 있었습니다.
-                        당근 보고 왔다고 하니 2만원정도 하는 디톡스 차 서비스로 주셨습니다^^
-                        땀을 쭉 빼고 와서 그런지 몸이 개운합니다~ 
-                        수술한 무릎과 돌덩이 같은 어깨의 통증 치료에 효과를 볼수 있기를 바랍니다.
-                        오늘 감사 했습니다~~
+                        사장님 센스가 아주 돋보이는 하루였습니다. 꼼꼼히 체크체크 해주시고, 이런저런 땡땡이 이야기까지 해주시고 정말 즐거운 하루였어요. 강력 추천합니다.
                     </span>
                     
                     <div class="after_item">
-                        <img class="image_area3" src="/images/당근메인이미지.png">
+                        <img class="image_area3" src="/images/after23.jpeg">
                         
                         <div class="ci1">
-                            <span>다이어트 뷰티카페 미타임</span>
-                            <span>후기20 단골 96</span>
+                            <p>네, 일해요</p>
+                            <span>후기 86 단골 431</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="after_link" href="">
+                    <div class="after_first">
+                        <img class="image_area2" src="/images/smile.png">
+                        <div class="after_detail">
+                            <div class="ad1">
+                                <span><h3 class="ad11">역주행거북이</h3></span>
+                                <span class="ad12">단골</span>
+                            </div>
+                            <div class="ad2">
+                                <span>제승동 인증 24회</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="aaspan">
+                        가격대비 퀄리티가 높습니다. 신선한 야채가 사장님의 부지런함을 대변하는듯합니다.
+                    </span>
+                    
+                    <div class="after_item">
+                        <img class="image_area3" src="/images/after24.jpeg">
+                        
+                        <div class="ci1">
+                            <p>샐러드 샐러드&햄버거</p>
+                            <span>후기 24 단골 1,560</span>
                         </div>
                     </div>
                 </a>
             </div>
         </div>
         <div class="last_div">
-            <img class="last_img" src="images/당근파비콘.png">
+            <img class="last_img" src="images/당근파비.png">
             <div class="dddd">
                 <h3>
                     업체를 운영하고 계신가요?
@@ -628,9 +1283,101 @@
             </div>
             <button class="bizzpro">비즈프로필 만들기</button>
         </div>
-        
-        
     </section>
+    <footer>
+        <div class="footer">
+            <section class="footerA">
+                <nav class="footerNav">
+                    <ul class="footerNavbar">
+                        <li><a href="">중고거래</a></li>
+                        <li><a href="">동네업체</a></li>
+                        <li><a href="">당근알바</a></li>
+                        <li><a href="">부동산</a></li>
+                        <li><a href="">중고차 직거래</a></li>
+                    </ul>
+                    <ul class="footerNavbar">
+                        <li><a href="">당근비즈니스</a></li>
+                        <li><a href="">채팅하기</a></li>
+                    </ul>
+                    <ul class="footerNavbar">
+                        <li><a href="">자주 묻는 질문</a></li>
+                        <li><a href="">회사 소개</a></li>
+                        <li><a href="">인재 채용</a></li>
+                    </ul>
+                </nav>
+                <div>
+                    <div class="DownloadDiv1">당근 앱 다운로드</div>
+                    <div class="DownloadDiv2">
+                        <a href="" class="AppStore"></a>
+                        <a href="" class="GooglePlay"></a>
+                    </div>
+                </div>
+            </section>
+            <section class="footerB">
+                <div class="infoWrap">
+                    <div class="info">
+                        <div>
+                            <span class="infoStick">
+                                <b>대표</b>김용현,황도연
+                            </span>
+
+                            <span>
+                                <b>사업자번호</b>375-87-00088
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <b>직업정보제공사업 신고번호</b>J1200020200016
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <b>통신판매업 신고번호</b>2021-서울서초-2875
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <b>주소</b>서울특별시 구로구 디지털로 300, 10층 (당근서비스)
+                            </span>
+                        </div>
+                        <div>
+                            <span class="infoStick">
+                                <b>전화</b>1544-9796
+                            </span>
+                            <span>
+                                <b>고객문의</b>cs@daangnservice.com
+                            </span>
+                        </div>
+                    </div>
+                    <div class="infoNav">
+                        <a href="">제휴 문의</a>
+                        <a href="">광고 문의</a>
+                        <a href="">PR 문의</a>
+                        <a href="">IR 문의</a>
+                    </div>
+                </div>
+                <div class="snsWrap">
+                    <a href=""><img src="images/Facebook.png" alt=""></a>
+                    <a href=""><img src="images/Instagram.png" alt=""></a>
+                    <a href=""><img src="images/Youtube.png" alt=""></a>
+                    <a href=""><img src="images/Blog.png" alt=""></a>
+                    <div class="lang">
+                        <img src="images/Global.png" width="16px" height="16px">
+                        <span>한국</span>
+                        <img src="images/DownArrow.png" alt="" width="12px" height="6px">
+                    </div>
+                </div>
+                <div class="rules">
+                    <a href="">이용약관</a>
+                    <a href="">개인정보처리방침</a>
+                    <a href="">운영정책</a>
+                    <a href="">위치기반서비스 이용약관</a>
+                    <a href="">이용자보호 비전과 계획</a>
+                    <a href="">청소년보호정책</a>
+                </div>
+            </section>
+        </div>
+    </footer>
     <hr>
 </body>
 </html>
