@@ -37,7 +37,8 @@
 
         .header {
             height: 64px;
-            margin: 0 160px;
+            width: 1200px;
+            margin: 0 auto;
             padding: 12px 20px;
             display: flex;
             align-items: center;
@@ -113,24 +114,20 @@
         /* 헤드부분 */
         .headWrap {
             height: 315px;
-            width: 100%;
             background-color: #ffe2d2;
-            position: relative;
             margin-top: 64px;
         }
-
+        .headContents {
+            width: 768px;
+            margin: 0 auto;
+            display: flex;
+            position: relative;
+        }
         .headContent {
             width: 768px;
             padding: 50px 0px;
             margin: 0 auto;
         }
-
-        .headContent {
-            width: 768px;
-            padding: 50px 0px;
-            margin: 0 auto;
-        }
-
         .headContent p {
             font-size: 18px;
             color: #212124;
@@ -154,8 +151,8 @@
 
         .headLogo {
             position: absolute;
-            bottom: 0;
-            right: 160px;
+            left: 380px;
+            bottom: -8px;
             background-image: url("https://www.daangn.com/_next/static/media/jobs_hero_3x.b118130e.png");
             background-size: cover;
             background-position: center;
@@ -186,7 +183,7 @@
         .jobsWrap:nth-child(2),
         .jobsWrap:nth-child(11),
         .jobsWrap:nth-child(12) {
-            padding-top: 0;
+            margin-top: 0;
         }
 
         .jobsWrap .jobsInfo {
@@ -618,7 +615,7 @@
             <nav class="nav">
                 <ul class="navBar">
                     <li><a href="fleamarket.html">중고거래</a></li>
-                    <li><a href="">동네업체</a></li>
+                    <li><a href="nearby_stores.html">동네업체</a></li>
                     <li><a href="jobs.html" style="color: #FF6F06;">알바</a></li>
                     <li><a href="realty.html">부동산</a></li>
                     <li><a href="car.html">중고차 직거래</a></li>
@@ -637,14 +634,16 @@
         </div>
     </header>
     <div class="headWrap">
-        <div class="headContent">
-            <h1>우리 동네에서 찾는<br>당근알바</h1>
-            <p>걸어서 10분 거리의<br>동네 알바들 여기 다 있어요</p>
-            <div>
-                <button class="postBtn">공고 올리기</button>
+        <div class="headContents">
+            <div class="headContent">
+                <h1>우리 동네에서 찾는<br>당근알바</h1>
+                <p>걸어서 10분 거리의<br>동네 알바들 여기 다 있어요</p>
+                <div>
+                    <button class="postBtn">공고 올리기</button>
+                </div>
             </div>
+            <div class="headLogo"></div>
         </div>
-        <div class="headLogo"></div>
     </div>
     <section class="bodyWrap">
         <h2>인기 당근알바</h2>
