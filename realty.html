@@ -37,7 +37,8 @@
 
         .header {
             height: 64px;
-            margin: 0 160px;
+            width: 1200px;
+            margin: 0 auto;
             padding: 12px 20px;
             display: flex;
             align-items: center;
@@ -104,6 +105,7 @@
             font-weight: 700;
             border: 1px solid rgba(0, 0, 0, 0.3);
         }
+
         .chatBtn a {
             font-size: 16px;
             color: #212124;
@@ -112,16 +114,15 @@
         /* 헤드부분 */
         .headWrap {
             height: 315px;
-            width: 100%;
             background-color: #d2edfa;
-            position: relative;
             margin-top: 64px;
         }
 
-        .headContent {
+        .headContents {
             width: 768px;
-            padding: 50px 0px;
             margin: 0 auto;
+            display: flex;
+            position: relative;
         }
 
         .headContent {
@@ -154,7 +155,7 @@
         .headLogo {
             position: absolute;
             bottom: 0;
-            right: 270px;
+            left: 380px;
             background-image: url("https://www.daangn.com/_next/static/media/realty_hero_3x.5316d5c5.png");
             background-size: cover;
             background-position: center;
@@ -186,7 +187,7 @@
         .realtysWrap:nth-child(2),
         .realtysWrap:nth-child(11),
         .realtysWrap:nth-child(12) {
-            padding-top: 0;
+            margin-top: 0;
         }
 
         .realtysWrap .realtysInfo {
@@ -476,6 +477,7 @@
             font-weight: 700;
             margin-right: 16px;
         }
+
         /* 모달 */
         .modal {
             display: none;
@@ -617,7 +619,7 @@
             <nav class="nav">
                 <ul class="navBar">
                     <li><a href="fleamarket.html">중고거래</a></li>
-                    <li><a href="">동네업체</a></li>
+                    <li><a href="nearby_stores.html">동네업체</a></li>
                     <li><a href="jobs.html">알바</a></li>
                     <li><a href="realty.html" style="color: #FF6F06;">부동산</a></li>
                     <li><a href="car.html">중고차 직거래</a></li>
@@ -636,14 +638,16 @@
         </div>
     </header>
     <div class="headWrap">
-        <div class="headContent">
-            <h1>간편하고 따뜻한<br>당근 부동산</h1>
-            <p>이웃이 살던 집, 당근에서<br>편하게 거래해보세요.</p>
-            <div>
-                <button class="postBtn">매물 올리기</button>
+        <div class="headContents">
+            <div class="headContent">
+                <h1>간편하고 따뜻한<br>당근 부동산</h1>
+                <p>이웃이 살던 집, 당근에서<br>편하게 거래해보세요.</p>
+                <div>
+                    <button class="postBtn">매물 올리기</button>
+                </div>
             </div>
+            <div class="headLogo"></div>
         </div>
-        <div class="headLogo"></div>
     </div>
     <section class="bodyWrap">
         <h2>인기 부동산 게시글</h2>
@@ -787,7 +791,7 @@
                         <div class="realtysPrice">매매 1억 7,000</div>
                     </div>
                 </article>
-                
+
                 <article class="realtysWrap">
                     <div class="realtysImg">
                         <img src="images/realty12.jpeg" alt="">
@@ -798,7 +802,7 @@
                         <div class="realtysPrice">매매 2억 9,500</div>
                     </div>
                 </article>
-                
+
                 <article class="realtysWrap">
                     <div class="realtysImg">
                         <img src="images/realty13.jpeg" alt="">
@@ -809,7 +813,7 @@
                         <div class="realtysPrice">월세 500 / 40</div>
                     </div>
                 </article>
-                
+
                 <article class="realtysWrap">
                     <div class="realtysImg">
                         <img src="images/realty14.jpeg" alt="">
@@ -820,7 +824,7 @@
                         <div class="realtysPrice">월세 500 / 60</div>
                     </div>
                 </article>
-                
+
                 <article class="realtysWrap">
                     <div class="realtysImg">
                         <img src="images/realty15.jpeg" alt="">
@@ -831,7 +835,7 @@
                         <div class="realtysPrice">월세 200 / 25</div>
                     </div>
                 </article>
-                
+
                 <article class="realtysWrap">
                     <div class="realtysImg">
                         <img src="images/realty16.jpg" alt="">
@@ -842,7 +846,7 @@
                         <div class="realtysPrice">연세 100 / 0</div>
                     </div>
                 </article>
-                
+
                 <article class="realtysWrap">
                     <div class="realtysImg">
                         <img src="images/realty17.jpeg" alt="">
@@ -853,7 +857,7 @@
                         <div class="realtysPrice">매매 8,000</div>
                     </div>
                 </article>
-                
+
                 <article class="realtysWrap">
                     <div class="realtysImg">
                         <img src="images/realty18.jpeg" alt="">
@@ -864,7 +868,7 @@
                         <div class="realtysPrice">매매 2억 2,498</div>
                     </div>
                 </article>
-                
+
                 <article class="realtysWrap">
                     <div class="realtysImg">
                         <img src="images/realty19.jpeg" alt="">
@@ -875,7 +879,7 @@
                         <div class="realtysPrice">전세 8,500</div>
                     </div>
                 </article>
-                
+
                 <article class="realtysWrap">
                     <div class="realtysImg">
                         <img src="images/realty20.jpeg" alt="">
@@ -1024,7 +1028,7 @@
         </div>
     </div>
     <script>
-        document.querySelector('.realtysWrap').addEventListener('click', function(event) {
+        document.querySelector('.realtysWrap').addEventListener('click', function (event) {
             event.stopPropagation(); // 이벤트 버블링 방지
             window.open("realty-post.html", "_blank");
         });
