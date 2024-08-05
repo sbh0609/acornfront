@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Property Examples</title>
+    <style>
+        .box {
+            padding: 10px;
+            margin: 10px;
+            background-color: lightblue;
+            border: 1px solid darkblue;
+        }
+
+        .inline-example {
+            display: inline;
+            background-color: lightgreen;
+        }
+
+        .block-example {
+            display: block;
+            background-color: lightcoral;
+        }
+
+        .inline-block-example {
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            background-color: lightyellow;
+        }
+
+        .flex-container {
+            display: flex;
+            background-color: lightgray;
+            padding: 10px;
+        }
+
+        .flex-item {
+            background-color: lightpink;
+            padding: 20px;
+            margin: 5px;
+            border: 1px solid red;
+        }
+
+        .none-example {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>display: none</h2>
+    <div class="box none-example">이 요소는 보이지 않습니다.</div>
+
+    <h2>display: inline</h2>
+    <span class="box inline-example">첫 번째 인라인 요소</span>
+    <span class="box inline-example">두 번째 인라인 요소</span>
+
+    <h2>display: block</h2>
+    <div class="box block-example">블록 요소</div>
+    <div class="box block-example">블록 요소</div>
+
+    <h2>display: inline-block</h2>
+    <div class="box inline-block-example">인라인 블록</div>
+    <div class="box inline-block-example">인라인 블록</div>
+
+    <h2>display: flex</h2>
+    <div class="flex-container">
+        <div class="box flex-item">플렉스 아이템 1</div>
+        <div class="box flex-item">플렉스 아이템 2</div>
+        <div class="box flex-item">플렉스 아이템 3</div>
+    </div>
+
+</body>
+</html>
